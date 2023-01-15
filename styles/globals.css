@@ -1,3 +1,62 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* temporal classes */
+.pkm-type-normal {
+  background-color: #a8a878;
+}
+.pkm-type-fighting {
+  background-color: #c03028;
+}
+.pkm-type-poison {
+  background-color: #a040a0;
+}
+.pkm-type-ground {
+  background-color: #e0c068;
+}
+.pkm-type-rock {
+  background-color: #b8a038;
+}
+.pkm-type-bug {
+  background-color: #a8b820;
+}
+.pkm-type-ghost {
+  background-color: #705898;
+}
+.pkm-type-steel {
+  background-color: #b8b8d0;
+}
+.pkm-type-fire {
+  background-color: #f08030;
+}
+.pkm-type-water {
+  background-color: #6890f0;
+}
+.pkm-type-grass {
+  background-color: #78c850;
+}
+.pkm-type-electric {
+  background-color: #f8d030;
+}
+.pkm-type-psychic {
+  background-color: #f85888;
+}
+.pkm-type-ice {
+  background-color: #98d8d8;
+}
+.pkm-type-dragon {
+  background-color: #7038f8;
+}
+.pkm-type-dark {
+  background-color: #705848;
+}
+.pkm-type-fairy {
+  background-color: #ee99ac;
+}
+.pkm-type-shadow {
+  background-color: rgb(38, 35, 35);
+}
+.pkm-type-flying {
+  background-color: #a890f0;
+}
