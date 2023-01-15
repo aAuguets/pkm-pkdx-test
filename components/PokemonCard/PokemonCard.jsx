@@ -10,7 +10,7 @@ export default function PokemonCard({ name, types, sprite, id }) {
   const typeColorCSS = getPokemonTypeColor(types);
   return (
     <div
-      className="rounded-xl shadow-lg relative flex flex-col border-2 justify-between"
+      className="rounded-xl shadow-lg relative flex flex-col justify-between"
       style={typeColorCSS}
     >
       <div className="w-[calc(100%_-_10px)] h-[calc(100%_-_10px)] top-1 relative bg-white bg-opacity-50 mx-auto my-0 rounded-t-lg pb-4">

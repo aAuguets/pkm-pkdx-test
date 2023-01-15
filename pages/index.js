@@ -2,14 +2,11 @@ import PokemonCard from "@/components/PokemonCard/PokemonCard";
 
 export default function Home({ pokemons }) {
   return (
-    <>
-      <h1 className="text-3xl font-bold underline">Pokedex</h1>
-      <article className="container m-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-        {pokemons.map((pkm) => {
-          return <PokemonCard {...pkm} key={pkm.id} />;
-        })}
-      </article>
-    </>
+    <article className="container m-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 pt-5">
+      {pokemons.map((pkm) => {
+        return <PokemonCard {...pkm} key={pkm.id} />;
+      })}
+    </article>
   );
 }
 
