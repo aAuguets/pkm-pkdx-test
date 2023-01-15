@@ -26,7 +26,7 @@ export default function PokemonCard({ name, types, sprite, id }) {
         className="absolute bottom-0 right-0 pb-7 px-2 text-base text-white"
         style={{
           textShadow: `1px 1px 5px ${
-            PokemonTypeColors[types[types.length - 1].type.name]
+            PokemonTypeColors[types[types.length - 1]]
           }`,
         }}
       >
@@ -34,7 +34,7 @@ export default function PokemonCard({ name, types, sprite, id }) {
       </p>
       <div className="absolute bottom-0 left-0 pb-8 px-2 flex gap-1">
         {types.map((type, id) => (
-          <PokemonTypeCard type={type} key={id} />
+          <PokemonTypeCard typeName={type} key={id} />
         ))}
       </div>
       <h2 className="mx-auto my-0 w-[100%] rounded-b-md h-8 text-center text-white font-medium text-[21px] capitalize ">

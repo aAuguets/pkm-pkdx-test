@@ -1,7 +1,6 @@
 import { PokemonTypeColors } from "@/utils/getPokemonTypeColor";
 
-export default function PokemonCard({ type }) {
-  const typeName = type.type.name;
+export default function PokemonCard({ typeName }) {
   return (
     <span
       className="rounded-full text-[12px] min-w-[30px] pl-1 pr-1 uppercase    "
