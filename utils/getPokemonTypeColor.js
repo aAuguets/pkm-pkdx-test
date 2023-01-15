@@ -1,4 +1,4 @@
-const PokemonTypeColors = {
+export const PokemonTypeColors = {
   ["normal"]: "#a8a878",
   ["fighting"]: "#c03028",
   ["poison"]: "#a040a0",
@@ -25,9 +25,11 @@ export const getPokemonTypeColor = (types) => {
     return { backgroundColor: PokemonTypeColors[types[0].type.name] };
   }
   return {
-    backgroundImage: `linear-gradient(to right,
-      ${PokemonTypeColors[types[0].type.name]},
-      ${PokemonTypeColors[types[1].type.name]}
-    );`,
+    backgroundImage:
+      "linear-gradient(to right," +
+      PokemonTypeColors[types[0].type.name] +
+      "," +
+      PokemonTypeColors[types[1].type.name] +
+      ")",
   };
 };
