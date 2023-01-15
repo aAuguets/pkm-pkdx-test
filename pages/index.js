@@ -1,15 +1,12 @@
-import PokemonCard from "@/components/PokemonCard";
+import PokemonCard from "@/components/PokemonCard/PokemonCard";
 
 export default function Home({ pokemons }) {
   return (
-    <>
-      <h1 className="text-3xl font-bold underline">Pokedex</h1>
-      <article className="container m-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-        {pokemons.map((pkm) => {
-          return <PokemonCard {...pkm} key={pkm.id} />;
-        })}
-      </article>
-    </>
+    <article className="container m-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 pt-5">
+      {pokemons.map((pkm) => {
+        return <PokemonCard {...pkm} key={pkm.id} />;
+      })}
+    </article>
   );
 }
 
@@ -19,7 +16,7 @@ export async function getStaticProps() {
     const result = await pokemon.json();
     return result;
   };
-  const TOTAL_FIRST_GEN_POKEMON = 25; //151;
+  const TOTAL_FIRST_GEN_POKEMON = 25; //386;
   const arrPromisesPkm = await [...Array(TOTAL_FIRST_GEN_POKEMON)].map(
     async (_, index) => {
       const { id, name, types, sprites, ...rest } = await getPokemonByIds(
@@ -28,7 +25,7 @@ export async function getStaticProps() {
       return {
         id,
         name,
-        types,
+        types: types.map((type) => type.type.name),
         sprite: sprites.other["official-artwork"].front_default,
       };
     }

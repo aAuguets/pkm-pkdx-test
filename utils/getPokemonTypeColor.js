@@ -22,14 +22,14 @@ export const PokemonTypeColors = {
 
 export const getPokemonTypeColor = (types) => {
   if (types.length === 1) {
-    return { backgroundColor: PokemonTypeColors[types[0].type.name] };
+    return { backgroundColor: PokemonTypeColors[types[0]] };
   }
   return {
     backgroundImage:
       "linear-gradient(to right," +
-      PokemonTypeColors[types[0].type.name] +
+      PokemonTypeColors[types[0]] +
       "," +
-      PokemonTypeColors[types[1].type.name] +
+      PokemonTypeColors[types[1]] +
       ")",
   };
 };
