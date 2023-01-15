@@ -22,20 +22,25 @@ export default function PokemonCard({ name, types, sprite, id }) {
           height="144"
         />
       </div>
-      <p
-        className="absolute bottom-0 right-0 pb-7 px-2 text-base text-white"
-        style={{
-          textShadow: `1px 1px 5px ${
-            PokemonTypeColors[types[types.length - 1]]
-          }`,
-        }}
-      >
-        No.<span className="text-4xl">{id}</span>
-      </p>
-      <div className="absolute bottom-0 left-0 pb-8 px-2 flex gap-1">
-        {types.map((type, id) => (
-          <PokemonTypeCard typeName={type} key={id} />
-        ))}
+      <div className=" absolute flex justify-between bottom-0 right-0 pb-7 w-[100%] px-2">
+        <div
+          className=" flex gap-[2px] h-[20px] flex-col"
+          style={types.length == 1 ? { alignSelf: "end" } : {}}
+        >
+          {types.map((type, id) => (
+            <PokemonTypeCard typeName={type} key={id} />
+          ))}
+        </div>
+        <p
+          className="text-base text-white"
+          style={{
+            textShadow: `1px 1px 5px ${
+              PokemonTypeColors[types[types.length - 1]]
+            }`,
+          }}
+        >
+          #<span className="text-4xl">{id}</span>
+        </p>
       </div>
       <h2 className="mx-auto my-0 w-[100%] rounded-b-md h-8 text-center text-white font-medium text-[21px] capitalize ">
         {name}
