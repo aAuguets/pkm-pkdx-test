@@ -1,11 +1,18 @@
 import PokemonCard from "@/components/PokemonCard/PokemonCard";
 
-export default function Home({ pokemons }) {
+export default function Home({ pokemons, search }) {
   return (
     <article className="container m-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 pt-5 pl-5 pr-5">
-      {pokemons.map((pkm) => {
-        return <PokemonCard {...pkm} key={pkm.id} />;
-      })}
+      {pokemons
+        .filter(
+          (pkm) =>
+            search == "" ||
+            pkm.name.toLowerCase().includes(search.toLowerCase())
+        )
+        .slice(0, 151)
+        .map((pkm) => {
+          return <PokemonCard {...pkm} key={pkm.id} />;
+        })}
     </article>
   );
 }
@@ -16,7 +23,7 @@ export async function getStaticProps() {
     const result = await pokemon.json();
     return result;
   };
-  const TOTAL_POKEMON = 25; //386;
+  const TOTAL_POKEMON = 386; //151 //386 //1010;
   const arrPromisesPkm = await [...Array(TOTAL_POKEMON)].map(
     async (_, index) => {
       const { id, name, types, sprites, ...rest } = await getPokemonByIds(
@@ -36,7 +43,6 @@ export async function getStaticProps() {
   return {
     props: {
       pokemons,
-      pokeHeader: pokemons[Math.floor(Math.random() * pokemons.length) + 1],
     },
   };
 }
