@@ -16,8 +16,8 @@ export async function getStaticProps() {
     const result = await pokemon.json();
     return result;
   };
-  const TOTAL_FIRST_GEN_POKEMON = 25; //386;
-  const arrPromisesPkm = await [...Array(TOTAL_FIRST_GEN_POKEMON)].map(
+  const TOTAL_POKEMON = 25; //386;
+  const arrPromisesPkm = await [...Array(TOTAL_POKEMON)].map(
     async (_, index) => {
       const { id, name, types, sprites, ...rest } = await getPokemonByIds(
         index + 1
@@ -36,6 +36,7 @@ export async function getStaticProps() {
   return {
     props: {
       pokemons,
+      pokeHeader: pokemons[Math.floor(Math.random() * pokemons.length) + 1],
     },
   };
 }
