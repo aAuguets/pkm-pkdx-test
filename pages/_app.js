@@ -13,7 +13,7 @@ export default function App({ Component, pageProps }) {
         </Link>
         <InputSearch setSearch={setSearch} />
       </div>
-      <Component {...{ ...pageProps, search }} />
+      <Component {...{ ...pageProps, search, setSearch }} />
     </>
   );
 }
