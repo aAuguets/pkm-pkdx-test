@@ -1,15 +1,15 @@
 export default function FeatureBox({ values, unit = "", title, style }) {
   return (
     <div
-      className="flex flex-col self-center w-[33%] text-black justify-between "
+      className="flex flex-col w-[33%] text-black justify-between h-[90px] sm:h-[110px] "
       style={style}
     >
-      <div className="flex flex-col h-[60px] justify-center">
+      <span className="text-sm sm:text-base font-light top-0">{title}</span>
+      <div className=" text-base sm:text-lg flex flex-col justify-center h-full">
         {values.map((value, id) => (
           <span className="capitalize" key={id}>{`${value} ${unit}`}</span>
         ))}
       </div>
-      <span className="text-base font-light">{title}</span>
     </div>
   );
 }

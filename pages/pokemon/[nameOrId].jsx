@@ -32,9 +32,11 @@ export default function PokeInfo({
       {/* header */}
       <div className="w-full flex justify-between">
         <Back />
-        <h1 className="text-5xl text-white capitalize font-bold">{name}</h1>
+        <h1 className="text-3xl sm:text-5xl text-white capitalize font-bold">
+          {name}
+        </h1>
         <span className="text-sm text-white capitalize self-end">
-          # <span className="text-2xl">{id}</span>
+          # <span className="text-xl sm:text-2xl">{id}</span>
         </span>
       </div>
       {/* Image */}
@@ -48,7 +50,7 @@ export default function PokeInfo({
         />
       </div>
       {/* Card */}
-      <article className="-top-10 relative mx-auto my-0 pt-12 pb-10 pr-5 pl-5 rounded-lg w-full bg-white bg-opacity-80">
+      <article className="-top-10 relative mx-auto my-0 pt-12  pr-5 pl-5 rounded-lg w-full bg-white bg-opacity-80">
         <div className="-top-8 absolute z-20 left-0 w-full pr-10 pl-10">
           <PokemonNavigate id={id} />
         </div>
