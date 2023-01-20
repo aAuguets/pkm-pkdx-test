@@ -1,5 +1,6 @@
 import Back from "@/components/Back/Back";
 import PokemonFeatures from "@/components/PokemonFeatures/PokemonFeatures";
+import PokemonNavigate from "@/components/PokemonNavigate/PokemonNavigate";
 import PokemonStats from "@/components/PokemonStats/PokemonStats";
 import PokemonTypeCard from "@/components/PokemonTypeCard/PokemonTypeCard";
 import {
@@ -48,6 +49,9 @@ export default function PokeInfo({
       </div>
       {/* Card */}
       <article className="-top-10 relative mx-auto my-0 pt-12 pb-10 pr-5 pl-5 rounded-lg w-full bg-white bg-opacity-80">
+        <div className="-top-8 absolute z-20 left-0 w-full pr-10 pl-10">
+          <PokemonNavigate id={id} />
+        </div>
         <div className="flex w-full justify-center gap-6 text-white">
           {pokemonTypes.map((type, id) => (
             <PokemonTypeCard typeName={type} key={id} />
