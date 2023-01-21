@@ -1,5 +1,6 @@
 import Back from "@/components/Back/Back";
 import PokemonFeatures from "@/components/PokemonFeatures/PokemonFeatures";
+import PokemonImage from "@/components/PokemonImage/PokemonImage";
 import PokemonNavigate from "@/components/PokemonNavigate/PokemonNavigate";
 import PokemonStats from "@/components/PokemonStats/PokemonStats";
 import PokemonTypeCard from "@/components/PokemonTypeCard/PokemonTypeCard";
@@ -7,7 +8,6 @@ import {
   getPokemonTypeColor,
   PokemonTypeColors,
 } from "@/utils/getPokemonTypeColor";
-import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
@@ -25,10 +25,10 @@ export default function PokeInfo({
   const router = useRouter();
 
   useEffect(() => {
-    if (sprite == null) router.push("/404");
+    if (pkmSprites?.front_default == null) router.push("/404");
   }, []);
 
-  const sprite = sprites?.other?.["official-artwork"]?.front_default;
+  const pkmSprites = sprites?.other?.["official-artwork"];
   const pokemonTypes = types.map((type) => type.type.name);
   const pokemonAbilities = abilities.map((ab) => ab.ability.name);
   const typeColorCSS = getPokemonTypeColor(pokemonTypes);
@@ -52,17 +52,7 @@ export default function PokeInfo({
         </h1>
       </div>
       {/* Image */}
-      <div className="relative mx-auto my-0 z-10">
-        {sprite && (
-          <Image
-            className="w-[50%] mx-auto my-0 max-w-xs"
-            src={sprite}
-            alt={`${name} sprite`}
-            width="144"
-            height="144"
-          />
-        )}
-      </div>
+      <PokemonImage pkmSprites={pkmSprites} name={name} />
       {/* Card */}
       <article className="-top-10 relative mx-auto my-0 pt-12  pr-5 pl-5 rounded-lg w-full bg-white bg-opacity-80">
         <div className="-top-8 absolute z-20 left-0 w-full pr-10 pl-10">
