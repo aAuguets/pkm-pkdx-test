@@ -1,5 +1,5 @@
-import BackIcon from "@/utils/BackIcon";
 import Link from "next/link";
+import BackIcon from "../BackIcon/BackIcon";
 
 export default function PokemonNavigate({ id }) {
   return (

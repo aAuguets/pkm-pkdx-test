@@ -1,5 +1,5 @@
-import BackIcon from "@/utils/BackIcon";
 import { useRouter } from "next/router";
+import BackIcon from "../BackIcon/BackIcon";
 
 export default function Back() {
   const router = useRouter();
