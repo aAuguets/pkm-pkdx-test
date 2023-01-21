@@ -24,15 +24,15 @@ export default function PokeInfo({
 }) {
   const router = useRouter();
 
-  useEffect(() => {
-    if (pkmSprites?.front_default == null) router.push("/404");
-  }, []);
-
   const pkmSprites = sprites?.other?.["official-artwork"];
   const pokemonTypes = types.map((type) => type.type.name);
   const pokemonAbilities = abilities.map((ab) => ab.ability.name);
   const typeColorCSS = getPokemonTypeColor(pokemonTypes);
   const pokemonTypeColor = PokemonTypeColors[pokemonTypes[0]];
+
+  useEffect(() => {
+    if (pkmSprites?.front_default == null) router.push("/404");
+  }, [pkmSprites]);
 
   return (
     <div
