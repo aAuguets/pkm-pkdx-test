@@ -15,8 +15,7 @@ const Custom404Page = () => {
         height="144"
       />
       <Link className="text-3xl hover:underline" href="/">
-        {" "}
-        Return Home{" "}
+        Return Home
       </Link>
     </div>
   );
