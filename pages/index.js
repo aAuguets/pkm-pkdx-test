@@ -27,7 +27,7 @@ export async function getStaticProps() {
     const result = await pokemon.json();
     return result;
   };
-  const TOTAL_POKEMON = 386; //151 //386 //1010;
+  const TOTAL_POKEMON = 386;
   const arrPromisesPkm = await [...Array(TOTAL_POKEMON)].map(
     async (_, index) => {
       const { id, name, types, sprites, ...rest } = await getPokemonByIds(
