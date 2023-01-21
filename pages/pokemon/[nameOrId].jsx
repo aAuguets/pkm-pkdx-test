@@ -8,6 +8,7 @@ import {
   PokemonTypeColors,
 } from "@/utils/getPokemonTypeColor";
 import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 
@@ -39,9 +40,14 @@ export default function PokeInfo({
       style={typeColorCSS}
     >
       {/* header */}
-      <div className=" flex mx-auto my-0">
-        <Back />
-        <h1 className="text-3xl sm:text-5xl text-white capitalize font-bold grow text-center pr-[40px]">
+      <div className=" flex flex-col ">
+        <nav className="flex gap-5 text-xl text-white ">
+          <Back />
+          <Link className="items-center hover:underline" href={"/"}>
+            Home
+          </Link>
+        </nav>
+        <h1 className="text-4xl sm:text-6xl text-white capitalize font-bold grow text-center mx-auto my-0">
           {name}
         </h1>
       </div>
@@ -68,7 +74,11 @@ export default function PokeInfo({
 
         <div className="flex w-full justify-center gap-6 text-white">
           {pokemonTypes.map((type, id) => (
-            <PokemonTypeCard typeName={type} key={id} />
+            <PokemonTypeCard
+              typeName={type}
+              key={id}
+              customStyle={{ width: "80px", textAlign: "center" }}
+            />
           ))}
         </div>
         {/* About card */}
