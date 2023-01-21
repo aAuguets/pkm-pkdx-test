@@ -8,6 +8,8 @@ import {
   PokemonTypeColors,
 } from "@/utils/getPokemonTypeColor";
 import Image from "next/image";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 export default function PokeInfo({
   name,
@@ -19,11 +21,18 @@ export default function PokeInfo({
   height,
   sprites,
 }) {
-  const sprite = sprites.other["official-artwork"].front_default;
+  const router = useRouter();
+
+  useEffect(() => {
+    if (sprite == null) router.push("/404");
+  }, []);
+
+  const sprite = sprites?.other?.["official-artwork"]?.front_default;
   const pokemonTypes = types.map((type) => type.type.name);
   const pokemonAbilities = abilities.map((ab) => ab.ability.name);
   const typeColorCSS = getPokemonTypeColor(pokemonTypes);
   const pokemonTypeColor = PokemonTypeColors[pokemonTypes[0]];
+
   return (
     <div
       className="pl-5 pr-5 pt-5 min-h-[calc(100vh_-_72px)]"
@@ -41,13 +50,15 @@ export default function PokeInfo({
       </div>
       {/* Image */}
       <div className="relative mx-auto my-0 z-10">
-        <Image
-          className="w-[50%] mx-auto my-0 max-w-xs"
-          src={sprite}
-          alt={`${name} sprite`}
-          width="144"
-          height="144"
-        />
+        {sprite && (
+          <Image
+            className="w-[50%] mx-auto my-0 max-w-xs"
+            src={sprite}
+            alt={`${name} sprite`}
+            width="144"
+            height="144"
+          />
+        )}
       </div>
       {/* Card */}
       <article className="-top-10 relative mx-auto my-0 pt-12  pr-5 pl-5 rounded-lg w-full bg-white bg-opacity-80">
@@ -84,11 +95,19 @@ export async function getServerSideProps(context) {
   } catch (e) {
     console.log(e);
   }
-  const { name, types, id, abilities, stats, weight, height, sprites } =
-    pokemonData;
+  const {
+    name = "",
+    types = [],
+    id = "",
+    abilities = [],
+    stats = [],
+    weight = "",
+    height = "",
+    sprites = "",
+  } = pokemonData;
 
   const statsFormatted = {};
-  stats.forEach((stat) => {
+  (stats || []).forEach((stat) => {
     statsFormatted[stat.stat.name] = stat.base_stat;
   });
 
