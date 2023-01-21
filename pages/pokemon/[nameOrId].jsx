@@ -39,14 +39,11 @@ export default function PokeInfo({
       style={typeColorCSS}
     >
       {/* header */}
-      <div className="w-full flex justify-between">
+      <div className=" flex mx-auto my-0">
         <Back />
-        <h1 className="text-3xl sm:text-5xl text-white capitalize font-bold">
+        <h1 className="text-3xl sm:text-5xl text-white capitalize font-bold grow text-center pr-[40px]">
           {name}
         </h1>
-        <span className="text-sm text-white capitalize self-end">
-          # <span className="text-xl sm:text-2xl">{id}</span>
-        </span>
       </div>
       {/* Image */}
       <div className="relative mx-auto my-0 z-10">
@@ -65,6 +62,10 @@ export default function PokeInfo({
         <div className="-top-8 absolute z-20 left-0 w-full pr-10 pl-10">
           <PokemonNavigate id={id} />
         </div>
+        <span className=" absolute right-0 top-4 text-sm capitalize self-end pr-5">
+          # <span className="text-4xl sm:text-6xl">{id}</span>
+        </span>
+
         <div className="flex w-full justify-center gap-6 text-white">
           {pokemonTypes.map((type, id) => (
             <PokemonTypeCard typeName={type} key={id} />

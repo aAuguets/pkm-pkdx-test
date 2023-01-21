@@ -8,15 +8,14 @@ export default function PokemonFeatures({
 }) {
   return (
     <article
-      className="font-bold text-center pt-5 pb-5"
+      className="font-bold text-center pt-3 pb-5"
       style={{ color: mainColor }}
     >
-      <h2 className="text-2xl">About</h2>
       <div className="flex justify-around w-full text-lg h-auto pt-5">
-        <FeatureBox values={[height]} unit="" title="Height" />
+        <FeatureBox values={[height / 10]} unit="m" title="Height" />
         <FeatureBox
-          values={[weight]}
-          unit=""
+          values={[weight / 10]}
+          unit="kg"
           title="Weight"
           style={{
             borderLeft: `1px solid ${mainColor}`,
